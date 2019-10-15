@@ -1,0 +1,38 @@
+---
+{
+  "name": "Bootstrap Cards",
+  "icon": "default",
+  "keep_icon": true,
+  "keep_label": true,
+  "settings": [
+  ],
+  "blocks": [
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Cards",
+      "category": "Bootstrap",
+      "settings": {},
+      "blocks": [
+      ]
+    }
+  ]
+}
+---
+.row
+  {% assign number_of_posts = section.settings.number_of_posts | default: 3 %}
+  {% for post in contents.posts limit:number_of_posts  %}
+  .col.mb-5
+    .card.h-100
+      %img.card-img-top{:alt => "", :src => "{{ post.url | default: 'http://placehold.it/300x200' }}"}
+      .card-body
+        %h4.card-title {{ post.title }}
+        %p.card-text {{ post.body | truncate: 120 }}
+      .card-footer
+        %a.btn.btn-primary{:href => "{% path_to post %}"} Find Out More!
+  {% endfor %}

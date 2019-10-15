@@ -1,0 +1,44 @@
+name: Products
+slug: products
+description: 
+label_field_name: name
+order_by: manually
+group_by: type
+fields:
+- name:
+    label: Name
+    type: string
+    required: true
+    hint: 
+    localized: false
+- type:
+    label: Type
+    type: select
+    required: false
+    hint: 
+    localized: false
+    select_options: ['drinks', 'vegetables', 'starters', 'seafoods', 'fishes', 'meats', 'desserts']
+- description:
+    label: Description
+    type: text
+    required: false
+    hint: 
+    localized: false
+- price:
+    label: Price
+    type: float
+    required: false
+    hint: 
+    localized: false
+- image:
+    label: Image
+    type: file
+    required: false
+    hint: 
+    localized: false
+- featured:
+    label: Featured
+    type: boolean
+    required: false
+    hint: 
+    localized: false

@@ -1,0 +1,9 @@
+node_modules/
+yarn-error.log
+log/
+!log/.keep
+tmp/
+!tmp/.keep
+.sass-cache
+bundle-analyzer.html
+config/deploy.yml

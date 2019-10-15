@@ -1,0 +1,50 @@
+---
+title: Sign up
+handle: sign_up
+---
+{% extends layouts/unauthenticated %}
+
+{% block main %}
+  {% if current_account %}
+    You're already authenticated!
+  {% else %}
+    <form action="{% path_to 'sign_up' %}" method="POST">
+      <input type="hidden" name="auth_action" value="sign_up" />
+      <input type="hidden" name="auth_content_type" value="accounts" />
+      <input type="hidden" name="auth_id_field" value="email" />
+      <input type="hidden" name="auth_password_field" value="password" />
+      <input type="hidden" name="auth_email_handle" value="welcome_message" />
+      <input type="hidden" name="auth_callback" value="{% path_to me %}" />
+
+      {% if auth_invalid_entry %}
+        We're sorry, we couldn't create your account.
+      {% endif %}
+
+      <label for="auth-name">Your name</label>
+      <input type="text" name="auth_entry[name]" id="auth-name" value="{{ auth_entry.name }}">
+      {% if auth_entry.errors.name.size > 0 %}
+        {{ auth_entry.errors.name.first }}
+      {% endif %}
+
+      <label for="auth-email">Your E-mail</label>
+      <input type="email" name="auth_entry[email]"  id="auth-email" value="{{ auth_entry.email }}">
+      {% if auth_entry.errors.email.size > 0 %}
+        {{ auth_entry.errors.email.first }}
+      {% endif %}
+
+      <label for="auth-password">Password</label>
+      <input type="password" name="auth_entry[password]" id="auth-password">
+      {% if auth_entry.errors.password.size > 0 %}
+        {{ auth_entry.errors.password.first }}
+      {% endif %}
+
+      <label for="auth-password">Password confirmation</label>
+      <input type="password" name="auth_entry[password_confirmation]" id="auth-password">
+      {% if auth_entry.errors.password_confirmation.size > 0 %}
+        {{ auth_entry.errors.password_confirmation.first }}
+      {% endif %}
+      
+      <button type="submit">Sign up</button>
+    </form>
+  {% endif %}
+{% endblock %}

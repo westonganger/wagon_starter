@@ -1,0 +1,16 @@
+---
+title: Contact Form
+handle: contact
+listed: true
+published: true
+position: 999
+---
+{% extends layouts/default %}
+
+{% block main, short_name: true %}
+.container
+  %h1 Contact
+  %p Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!
+
+  {% include contact-form %}
+{% endblock %}

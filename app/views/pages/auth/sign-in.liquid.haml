@@ -1,0 +1,143 @@
+---
+title: Sign in
+handle: sign_in
+---
+{% extends layouts/unauthenticated %}
+
+{% block main %}
+.container-fluid
+  .row.no-gutter.login-splitscreen
+    %div(class="d-none d-md-flex col-md-4 col-lg-6 bg-image")
+
+    .col-md-8.col-lg-6
+      .login-splitscreen.d-flex.align-items-center.py-5
+        .container
+          .row
+            .col-md-9.col-lg-8.mx-auto
+              %h3.login-heading.mb-4 Welcome back!
+
+              %form(action="{% path_to 'sign_in' %}" method="POST")
+                <input type="hidden" name="auth_action" value="sign_in" />
+                <input type="hidden" name="auth_content_type" value="accounts" />
+                <input type="hidden" name="auth_id_field" value="email" />
+                <input type="hidden" name="auth_password_field" value="password" />
+                <input type="hidden" name="auth_callback" value="{% path_to me %}" />
+
+                {% if auth_wrong_credentials %}
+                %div Wrong credentials!
+                {% endif %}
+
+                -# <label for="auth-email">Your E-mail</label>
+                -# <input type="email" class="form-control" id="auth-email" placeholder="Email" name="auth_id" value="{{ params.auth_id }}">
+                
+                -# <label for="auth-password">Password</label>
+                -# <input type="password" class="form-control" id="auth-password" placeholder="Password" name="auth_password" value="">
+
+                .form-label-group
+                  %input#inputEmail.form-control{:autofocus => "", :placeholder => "Email address", :required => "", :type => "email", value: "{{ params.email }}"}
+                  %label{:for => "inputEmail"} Email address
+
+                .form-label-group
+                  %input#inputPassword.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                  %label{:for => "inputPassword"} Password
+
+                .custom-control.custom-checkbox.mb-3
+                  %input#customCheck1.custom-control-input{:type => "checkbox"}
+                  %label.custom-control-label{:for => "customCheck1"} Remember password
+
+                %button.btn.btn-lg.btn-primary.btn-block.btn-login.text-uppercase.font-weight-bold.mb-2{:type => "submit"} Sign in
+
+                .text-center
+                  %a.small{:href => "#"} Forgot password?
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block css %}
+:css
+  .login-splitscreen,
+  .login-splitscreen .image {
+    min-height: 100vh;
+    --input-padding-x: 1.5rem;
+    --input-padding-y: 0.75rem;
+  }
+
+  .login-splitscreen .bg-image {
+    background-image: url('https://mountaintrip.com/wp-content/uploads/2013/10/Denali-from-the-south.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .login-splitscreen .login-heading {
+    font-weight: 300;
+  }
+
+  .login-splitscreen .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 2rem;
+  }
+
+  .login-splitscreen .form-label-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .login-splitscreen .form-label-group>input,
+  .login-splitscreen .form-label-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+    height: auto;
+    border-radius: 2rem;
+  }
+
+  .login-splitscreen .form-label-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    cursor: text;
+    /* Match the input under the label */
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+  }
+
+  .login-splitscreen .form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .login-splitscreen .form-label-group input:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .login-splitscreen .form-label-group input::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .login-splitscreen .form-label-group input::-moz-placeholder {
+    color: transparent;
+  }
+
+  .login-splitscreen .form-label-group input::placeholder {
+    color: transparent;
+  }
+
+  .login-splitscreen .form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+  }
+
+  .login-splitscreen .form-label-group input:not(:placeholder-shown)~label {
+    padding-top: calc(var(--input-padding-y) / 3);
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    font-size: 12px;
+    color: #777;
+  }
+{% endblock %}

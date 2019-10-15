@@ -1,0 +1,11 @@
+{
+  "type": "select",
+  "label": "Text Alignment",
+  "options": [
+    {"label": "None", "value": ""},
+    {"label": "Center", "value": "text-center"},
+    {"label": "Left", "value": "text-left"},
+    {"label": "Right", "value": "text-right"}
+  ],
+  "default": ""
+}

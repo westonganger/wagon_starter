@@ -1,0 +1,24 @@
+name: Brands
+slug: brands
+description: Brands / Companies / Partners
+label_field_name: name
+order_by: manually
+fields:
+- name:
+    label: Name
+    type: string
+    required: true
+    hint: 
+    localized: false
+- logo:
+    label: Logo
+    type: file
+    required: false
+    hint: 
+    localized: false
+- link_url:
+    label: Link URL
+    type: string
+    required: false
+    hint: 
+    localized: false

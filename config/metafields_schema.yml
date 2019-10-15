@@ -1,0 +1,78 @@
+##### Site metafield schema #####
+
+### EXAMPLE
+# general: # no spaces, only digits and underscores
+#   label: # if you want to provide the label in another language (back-office)
+#     en: 'General Stuff' 
+#   fields:
+#     company_name:
+#       label: 'Company Name' # used as the label of the HTML input. Use a hash if you want it in another languages.
+#       hint: 'Lorem Ipsum...' # used as the hint of the HTML input. Use a hash if you want it in another languages.
+#       type: string # <string|text|integer|float|image|boolean|select|color>
+#       localized: false # if the value is scoped by the current locale when rendering the site.
+#       position: 0 # <0..n>, position of the input in the form
+#       select_options: [array]
+#       # select_options:
+#       #   <option_value_1>: <label> # use a hash instead if you want it in another languages.
+#       #   <option_value_2>: <label> # use a hash instead if you want it in another languages.
+#     # other_field:
+#     #   ...
+#
+# theme:
+#   # ...
+#
+### EXAMPLE END
+
+company:
+  label: 'Company'
+  fields:
+    name:
+      type: string
+    address:
+      type: string
+    city:
+      type: string
+    postal_code:
+      type: string
+    phone:
+      type: string
+    email:
+      type: string
+    hours:
+      type: text
+
+social:
+  label: Social Networks
+  fields:
+    - facebook
+    - twitter
+    - linkedin
+    - pinterest
+    - dribbble
+    - instagram
+    - github
+
+# email_settings: ### Currently not used
+#   label: "Email Settings"
+#   fields:
+#     from_address:
+#       type: string:
+#       hint: "Default: ''"
+#     smtp_host:
+#       type: string
+#       hint: "Default: ''"
+#     smtp_port:
+#       type: string
+#       hint: "Default: ''"
+#     smtp_user:
+#       type: string
+#       hint: "Default: ''"
+#     smtp_password:
+#       type: string
+#       hint: "Default: ''"
+#     authentication_type:
+#       type: string
+#       hint: "Default: 'plain'"
+#     enable_starttls_auto: 
+#       type: boolean
+#       hint: "Default: true"

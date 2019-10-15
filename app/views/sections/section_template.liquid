@@ -1,0 +1,99 @@
+---
+{
+  "name": "",
+  "class": "",
+  "icon": "default",
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "label": "Full Page?",
+      "id": "full_height",
+      "type": "checkbox",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text",
+          "default": ""
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Section Template",
+      "category": "General",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+
+<section class="{% if section.settings.full_height %}full-height{% endif %}">
+  <h2>{{ section.settings.title | default: 'Main Title' }}</h2>
+  <p>{{ section.settings.description | default: 'Lorem ipsum' }}</p>
+  <ul>
+    {% for block in section.blocks %}
+      {% if block.type == 'item' %}
+        <li {{ block.locomotive_attributes }}>
+          <strong>{{ block.settings.title | default: 'Block Item Title' }}</strong> - {{ block.settings.description | default: 'Lorem ipsum' }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>

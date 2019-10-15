@@ -1,0 +1,103 @@
+---
+{
+  "name": "Bootstrap Features Round",
+  "icon": "default",
+  "keep_icon": true,
+  "keep_label": true,
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Headline",
+          "id": "headline",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        },
+        {
+          "label": "Link Text",
+          "id": "link_text",
+          "type": "text"
+        },
+        {
+          "label": "Link URL",
+          "id": "link_url",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Features Round",
+      "category": "Bootstrap",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+:css
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: 400;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+
+.container.marketing
+  .row
+    {% with_scope type: 'item' %}
+    {% for block in section.blocks %}
+    .col-lg-4
+      %svg.bd-placeholder-img.rounded-circle{:focusable => "false", :height => "140", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "140"}
+        %title Placeholder
+        %rect{:fill => "#777", :height => "100%", :width => "100%"}
+        %text{:dy => ".3em", :fill => "white", :x => "50%", :y => "50%"} 140x140
+      %h2 {{ block.settings.headline | default: 'Heading' }}
+      %p {{ block.settings.description | default: 'Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.' }}
+      %p
+        %a.btn.btn-secondary{:href => "{{ block.settings.link_url }}", :role => "button"} {{ block.settings.link_text | default: 'View More' }}
+    {% endfor %}
+    {% endwith_scope %}

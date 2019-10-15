@@ -1,0 +1,5 @@
+{
+  "type": "text",
+  "label": "The Label Text",
+  "default": "Custom Field Default Value"
+}

@@ -1,0 +1,9 @@
+<figure class="figure">
+  {% if image_url != blank %}
+    <img src="{{ image_url }}" class="figure-img img-fluid {{ image_class }}" {% if image_alt != blank %}alt="{{ image_alt }}"{% endif %}>
+  {% endif %}
+
+  {% if caption != blank %}
+    <figcaption class="figure-caption">{{ caption }}</figcaption>
+  {% endif %}
+</figure>

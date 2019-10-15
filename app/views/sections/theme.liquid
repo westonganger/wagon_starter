@@ -1,0 +1,395 @@
+---
+{
+  "name": "Theme",
+  "class": "theme-section",
+  "icon": "default",
+  "settings": [
+    {
+      "label": "Bootswatch Theme",
+      "id": "bootswatch_theme",
+      "type": "text"
+    },
+    {
+      "label": "Text Color",
+      "id": "text_color",
+      "type": "text"
+    },
+    {
+      "label": "Title Text Color",
+      "id": "title_text_color",
+      "type": "text"
+    },
+    {
+      "label": "Background Color",
+      "id": "background_color",
+      "type": "text"
+    },
+    {
+      "label": "Background Image",
+      "id": "background_image",
+      "type": "image_picker",
+      "hint": "Full screen background image (min: 3000px x 3000px)"
+    },
+    {
+      "label": "Text Font Family",
+      "id": "text_font_family",
+      "type": "text"
+    },
+    {
+      "label": "Title Font Family",
+      "id": "title_font_family",
+      "type": "text",
+      "hint": "Will fallback to Text Font Family"
+    },
+    {
+      "label": "Font URLs",
+      "id": "text",
+      "type": "text",
+      "html": false,
+      "hint": "Seperate URL's with a semicolan (;)"
+    },
+    {
+      "label": "CSS Overrides",
+      "id": "css_overrides",
+      "type": "text",
+      "html": false,
+      "hint": "Any CSS styles you would like to add to your site"
+    },
+    {
+      "label": "Custom Head HTML",
+      "id": "custom_head_html",
+      "type": "text",
+      "hint": "Any custom html you want to add to the invisible <head> section of your site. Default: ''"
+    },
+    {
+      "label": "Bootstrap 4 Primary Color",
+      "id": "bootstrap_4_primary",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Secondary Color",
+      "id": "bootstrap_4_secondary",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Success Color",
+      "id": "bootstrap_4_success",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Info Color",
+      "id": "bootstrap_4_info",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Warning Color",
+      "id": "bootstrap_4_warning",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Danger Color",
+      "id": "bootstrap_4_danger_color",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Light Color",
+      "id": "bootstrap_4_light_color",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Dark Color",
+      "id": "bootstrap_4_dark",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Breakpoint XS",
+      "id": "bootstrap_4_breakpoint_xs",
+      "type": "text",
+      "hint": "Default: '0px'",
+      "default": "0px"
+    },
+    {
+      "label": "Bootstrap 4 Breakpoint SM",
+      "id": "bootstrap_4_breakpoint_sm",
+      "type": "text",
+      "hint": "Default: '576px'",
+      "default": "576px"
+    },
+    {
+      "label": "Bootstrap 4 Breakpoint MD",
+      "id": "bootstrap_4_breakpoint_md",
+      "type": "text",
+      "hint": "Default: '768px'",
+      "default": "768px"
+    },
+    {
+      "label": "Bootstrap 4 Breakpoint LG",
+      "id": "bootstrap_4_breakpoint_lg",
+      "type": "text",
+      "hint": "Default: '992px'",
+      "default": "992px"
+    },
+    {
+      "label": "Bootstrap 4 Breakpoint XL",
+      "id": "bootstrap_4_breakpoint_x;",
+      "type": "text",
+      "hint": "Default: '1200px'",
+      "default": "1200px"
+    },
+    {
+      "label": "Bootstrap 4 Font Family Sans Serif",
+      "id": "bootstrap_4_font_family_sans_serif",
+      "type": "text",
+      "hint": "Default: \"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'\"",
+      "default": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+    },
+    {
+      "label": "Bootstrap 4 Font Family Monospace",
+      "id": "bootstrap_4_font_family_monospace",
+      "type": "text",
+      "hint": "Default: \"SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace\"",
+      "default": "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+    },
+    {
+      "label": "Bootstrap 4 Blue",
+      "id": "bootstrap_4_blue",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Indigo",
+      "id": "bootstrap_4_indigo",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Purple",
+      "id": "bootstrap_4_purple",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Pink",
+      "id": "bootstrap_4_pink",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Red",
+      "id": "bootstrap_4_red",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Orange",
+      "id": "bootstrap_4_orange",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Yellow",
+      "id": "bootstrap_4_yellow",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Green",
+      "id": "bootstrap_4_green",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Teal",
+      "id": "bootstrap_4_teal",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Cyan",
+      "id": "bootstrap_4_cyan",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 White",
+      "id": "bootstrap_4_white",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Gray",
+      "id": "bootstrap_4_gray",
+      "type": "text"
+    },
+    {
+      "label": "Bootstrap 4 Gray Dark",
+      "id": "bootstrap_4_gray_dark",
+      "type": "text"
+    }
+  ],
+  "blocks": [],
+  "default": {
+    "settings": {
+      "text_font_family": ""
+    }
+  }
+}
+---
+
+{% comment %} Custom CSS Variables {% endcomment %}
+<style>
+  :root {
+    {% if section.settings.text_color != blank %}
+      --text-color: {{ section.settings.text_color }};
+    {% endif %}
+
+    {% if section.settings.title_text_color != blank %}
+      --title-text-color: {{ section.settings.title_text_color }};
+    {% endif %}
+
+    {% if section.settings.background_color != blank %}
+      --background-color: {{ section.settings.background_color }};
+    {% endif %}
+
+    {% if section.settings.background_image != blank %}
+      --background-image: {{ section.settings.background_image }};
+    {% endif %}
+
+    {% if section.settings.text_font_family != blank %}
+      --text-font-family: {{ section.settings.text_font_family }};
+    {% endif %}
+
+    {% if section.settings.title_font_family != blank %}
+      --title-font-family: {{ section.settings.title_font_family }};
+    {% endif %}
+  }
+</style>
+
+{% comment %} Bootstrap 4 CSS Variables - https://getbootstrap.com/docs/4.3/getting-started/theming/#css-variables {% endcomment %}
+<style>
+  :root {
+    {% if section.settings.bootstrap_4_primary != blank %}
+      --primary: {{ section.settings.bootstrap_4_primary }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_secondary != blank %}
+      --secondary: {{ section.settings.bootstrap_4_secondary }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_success != blank %}
+      --success: {{ section.settings.bootstrap_4_success }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_info != blank %}
+      --info: {{ section.settings.bootstrap_4_info }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_warning != blank %}
+      --warning: {{ section.settings.bootstrap_4_warning }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_danger != blank %}
+      --danger: {{ section.settings.bootstrap_4_danger }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_light != blank %}
+      --light: {{ section.settings.bootstrap_4_light }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_dark != blank %}
+      --dark: {{ section.settings.bootstrap_4_dark }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_breakpoint_xs != blank %}
+      --breakpoint-xs: {{ section.settings.bootstrap_4_breakpoint_xs }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_breakpoint_sm != blank %}
+      --breakpoint-sm: {{ section.settings.bootstrap_4_breakpoint_sm }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_breakpoint_md != blank %}
+      --breakpoint-md: {{ section.settings.bootstrap_4_breakpoint_md }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_breakpoint_lg != blank %}
+      --breakpoint-lg: {{ section.settings.bootstrap_4_breakpoint_lg }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_breakpoint_xl != blank %}
+      --breakpoint-xl: {{ section.settings.bootstrap_4_breakpoint_xl }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_font_family_sans_serif != blank %}
+      --font-family-sans-serif: {{ section.settings.bootstrap_4_font_family_sans_serif }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_font_family_monospace != blank %}
+      --font-family-monospace: {{ section.settings.bootstrap_4_font_family_monospace }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_blue != blank %}
+      --blue: {{ section.settings.bootstrap_4_blue }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_indigo != blank %}
+      --indigo: {{ section.settings.bootstrap_4_indigo }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_purple != blank %}
+      --purple: {{ section.settings.bootstrap_4_purple }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_pink != blank %}
+      --pink: {{ section.settings.bootstrap_4_pink }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_red != blank %}
+      --red: {{ section.settings.bootstrap_4_red }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_orange != blank %}
+      --orange: {{ section.settings.bootstrap_4_orange }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_yellow != blank %}
+      --yellow: {{ section.settings.bootstrap_4_yellow }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_green != blank %}
+      --green: {{ section.settings.bootstrap_4_green }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_teal != blank %}
+      --teal: {{ section.settings.bootstrap_4_teal }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_cyan != blank %}
+      --cyan: {{ section.settings.bootstrap_4_cyan }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_white != blank %}
+      --white: {{ section.settings.bootstrap_4_white }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_gray != blank %}
+      --gray: {{ section.settings.bootstrap_4_gray }};
+    {% endif %}
+
+    {% if section.settings.bootstrap_4_gray_dark != blank %}
+      --gray-dark: {{ section.settings.bootstrap_4_gray_dark }};
+    {% endif %}
+  }
+</style>
+
+{% if section.settings.font_urls != blank %}
+  {% assign font_urls = section.settings.font_urls | split: ';' %}
+  {% for x in font_urls %}
+    <link href="{{ x }}" rel="stylesheet">
+  {% endfor %}
+{% endif %}
+
+{% if section.settings.css_overrides != blank %}
+  <style>
+    {{ section.settings.css_overrides }}
+  </style>
+{% endif %}
+
+{% if section.settings.custom_head_html != blank %}
+  {{ section.settings.custom_head_html }}
+{% endif %}
+
+{% if section.settings.bootswatch_theme != blank %}
+  {% include 'asset', type: 'bootstrap', version: '4.3.1', bootswatch_theme: section.settings.bootswatch_theme, skip_js: true %}
+{% else %}
+  {{ 'main/bootstrap_4_custom' | stylesheet_tag }}
+{% endif %}

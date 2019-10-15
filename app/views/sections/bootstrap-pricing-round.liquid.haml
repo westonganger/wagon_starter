@@ -1,0 +1,178 @@
+---
+{
+  "name": "Bootstrap Pricing Round",
+  "class": "bootstrap-pricing-round",
+  "icon": "default",
+  
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Pricing Round",
+      "category": "General",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+
+:css
+  section.pricing {
+    background: #007bff;
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+  }
+
+  .pricing .card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing hr {
+    margin: 1.5rem 0;
+  }
+
+  .pricing .card-title {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+  }
+
+  .pricing .card-price {
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  .pricing .card-price .period {
+    font-size: 0.8rem;
+  }
+
+  .pricing ul li {
+    margin-bottom: 1rem;
+  }
+
+  .pricing .text-muted {
+    opacity: 0.7;
+  }
+
+  .pricing .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+  }
+
+  /* Hover Effects on Card */
+
+  @media (min-width: 992px) {
+    .pricing .card:hover {
+      margin-top: -.25rem;
+      margin-bottom: .25rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    }
+    .pricing .card:hover .btn {
+      opacity: 1;
+    }
+  }
+
+%section.pricing.py-5
+  .container
+    .row
+      {% with_scope type: 'pricing_plan' %}
+      {% for block in section.blocks %}
+      .col-lg-4
+        .card.mb-5.mb-lg-0.h-100
+          .card-body
+            {% capture plan_name %}{% cycle 'Free', 'Plus', 'Pro'  %}{% endcapture %}
+            %h5.card-title.text-muted.text-uppercase.text-center {{ block.settings.name | default: plan_name }}
+            %h6.card-price.text-center
+              {{ block.settings.price | default: '$0' }}
+              %span.period /month
+            %hr/
+            %ul.fa-ul
+              {% assign default_features = '' %}
+              {% assign num = forloop.index | times: 2 %}
+
+              {% for i in (1..num) %}
+              {% assign default_features = default_features | append: ", Feature " | append: i %}
+              {% endfor %}
+
+              {% assign default_features = default_features | remove_first: ', ' | split: ', ' %}
+              
+              {% assign the_features = block.settings.features | default: default_features %}
+
+              {% for feature in the_features %}
+              %li
+                %span.fa-li(style="top: 3px;")
+                  %i.fas.fa-check
+                %strong {{ feature }}
+              {% endfor %}
+
+          .card-footer
+            %a.btn.btn-block.btn-primary.text-uppercase{:href => "{{ block.settings.link_url }}"} {{ block.settings.link_text | default: 'Purchase' }}
+      {% endfor %}
+      {% endwith_scope %}

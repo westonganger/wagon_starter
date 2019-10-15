@@ -1,0 +1,90 @@
+---
+{
+  "name": "Bootstrap Headline",
+  "icon": "default",
+  "keep_icon": true,
+  "keep_label": true,
+  "settings": [
+    {
+      "label": "Headline",
+      "id": "headline",
+      "type": "text"
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "text"
+    },
+    {
+      "label": "Primary Link Text",
+      "id": "primary_link_text",
+      "type": "text"
+    },
+    {
+      "label": "Primary Link url",
+      "id": "primary_link_url",
+      "type": "url"
+    },
+    {
+      "label": "Secondary Link Text",
+      "id": "primary_link_text",
+      "type": "text"
+    },
+    {
+      "label": "Secondary Link url",
+      "id": "primary_link_url",
+      "type": "url"
+    }
+  ],
+  "blocks": [],
+  "default": {
+    "settings": {},
+    "blocks": []
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Headline",
+      "category": "Bootstrap",
+      "settings": {},
+      "blocks": []
+    }
+  ]
+}
+
+---
+:css
+  .headline-section .jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  @media (min-width: 768px) {
+    .headline-section .jumbotron {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .headline-section .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+
+  .headline-section .jumbotron-heading {
+    font-weight: 300;
+  }
+
+  .headline-section .jumbotron .container {
+    max-width: 40rem;
+  }
+
+.headline-section
+  %section.jumbotron.text-center
+    .container
+      %h1.jumbotron-heading {{ section.settings.headline | default: 'Album Example' }}
+
+      %p.lead.text-muted {{ section.settings.description | default: 'Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.' }}
+
+      %p
+        %a.btn.btn-primary.my-2{:href => "{{ section.settings.primary_link_url }}"} {{ section.settings.primary_link_text | default: 'Main call to action' }}
+        %a.btn.btn-secondary.my-2{:href => "{{ section.settings.secondary_link_url }}"} {{ section.settings.secondary_link_text | default: 'Secondary Action' }}

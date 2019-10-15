@@ -1,0 +1,11 @@
+{% assign dismissible = dismissible | default: true %}
+
+<div class="alert {{ color_class }} {% if dismissible %}alert-dismissible fade show{% endif %}" role="alert">
+  {{ content }}
+
+  {% if dismissable %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  {% endif %}
+</div>

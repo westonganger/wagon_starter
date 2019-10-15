@@ -1,0 +1,37 @@
+---
+{
+  "name": "Custom Content",
+  "icon": "default",
+  "keep_icon": true,
+  "keep_label": true,
+  "settings": [
+    {
+      "label": "Body",
+      "id": "body",
+      "type": "text",
+      "html": true,
+      "line_break": false
+    }
+  ],
+  "blocks": [
+  ],
+  "dropzone_presets": [
+    {
+      "name": "Custom Content",
+      "category": "General",
+      "settings": {
+      }
+    }
+  ]
+}
+---
+
+{% capture default_body %}
+  <h1>Custom Content</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
+{% endcapture %}
+
+<div class="container">
+  {{ section.settings.body | default: default_body }}
+</div>

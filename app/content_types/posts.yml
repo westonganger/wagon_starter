@@ -1,0 +1,70 @@
+# Human readable name of this type
+name: Posts
+
+# Lowercase, underscored handle used to access this type
+slug: posts
+
+# Explanatory text displayed in the back-office
+description: 
+
+# Slug of field used to identify entries by default, such as the title
+label_field_name: title
+
+# Valid values: manually, created_at, updated_at, or the slug of any field
+order_by: date
+
+# Valid values: asc (ascending) and desc (descending). Set to asc by default.
+order_direction: desc
+
+# Specify a field slug to group entries by that field in the back-office.
+# group_by: <your field>
+
+# Activate public 'create' API (e.g for a contact form)
+# public_submission_enabled: false
+
+# Array of emails to be notified of new entries made with the public API
+# public_submission_accounts: ['john@example.com']
+
+display_settings:
+  position: 1
+
+entry_template: '<a href="{{ link }}">{{ entry.title }}</a> {% if entry.date > today %}&nbsp;<span class="label label-warning">Not published yet. Will be on {{ entry.date | localized_date: "%m/%d/%Y" }}</span>{% endif %}'
+
+# A list describing each field
+fields:
+- title:
+    type: string
+    required: true
+    hint: 
+    localized: false
+
+- subtitle:
+    type: string
+    required: false
+    hint: 
+    localized: false
+
+- author:
+    type: string
+    required: false
+    hint: 
+    localized: false
+
+- date:
+    type: date
+    required: false
+    hint:
+    localized: false
+
+- image:
+    type: file
+    required: false
+    hint:
+    localized: false
+
+- body:
+    type: text
+    required: false
+    hint: 
+    localized: false
+    # text_formatting: html # html (uses rich text editor) or text (uses plain text editor)

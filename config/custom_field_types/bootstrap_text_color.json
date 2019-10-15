@@ -1,0 +1,64 @@
+{
+  "label": "Text Color",
+  "id": "text_class",
+  "default": "",
+  "type": "select",
+  "options": [
+    {
+      "label": "Primary",
+      "value": "text-primary"
+    },
+    {
+      "label": "Secondary",
+      "value": "text-secondary"
+    },
+    {
+      "label": "Success",
+      "value": "text-success"
+    },
+    {
+      "label": "Danger",
+      "value": "text-danger"
+    },
+    {
+      "label": "Warning",
+      "value": "text-warning"
+    },
+    {
+      "label": "Info",
+      "value": "text-info"
+    },
+    {
+      "label": "Light",
+      "value": "text-light"
+    },
+    {
+      "label": "Dark",
+      "value": "text-dark"
+    },
+    {
+      "label": "Body",
+      "value": "text-body"
+    },
+    {
+      "label": "Muted",
+      "value": "text-muted"
+    },
+    {
+      "label": "White",
+      "value": "text-white"
+    },
+    {
+      "label": "White 50%",
+      "value": "text-white-50"
+    },
+    {
+      "label": "Black",
+      "value": "text-black"
+    },
+    {
+      "label": "Black 50%",
+      "value": "text-black-50"
+    }
+  ]
+}

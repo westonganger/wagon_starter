@@ -1,0 +1,29 @@
+<div class="card h-100 {{ background_color_class }}">
+
+  {% if image_url != blank %}
+    <img class="card-img-top" src ="{{ image_url }}" {% if image_alt != blank %}alt="{{ image_alt }}"{% endif %}>
+  {% endif %}
+
+  <div class="card-body">
+    {% if title != blank %}
+      <h4 class="card-title">{{ title }}</h4>
+    {% endif %}
+
+    {% if content != blank %}
+      <p class="card-text">{{ content }}</p>
+    {% endif %}
+  </div>
+
+  {% if link_url != blank or footer_content != blank %}
+    <div class="card-footer">
+      {% if footer_content != blank %}
+        {{ footer_content }}
+      {% endif %}
+
+      {% if show_link %}
+        <a class="btn {{ link_color_class }}" href="{{ link_url }}">{{ link_text }}</a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+</div>

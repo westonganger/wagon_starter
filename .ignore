@@ -1,0 +1,6 @@
+# for ag-silversearcher
+
+yarn.lock
+/app/assets/*/javascripts/vendor/*
+/app/assets/*/stylesheets/vendor/*
+/public/

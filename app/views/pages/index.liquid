@@ -1,0 +1,23 @@
+---
+title: Home
+handle: home
+listed: true
+published: true
+position: -999
+---
+{% extends layouts/default %}
+
+{% block main %}
+  <section class="fdb-block py-0 my-5">
+    <div class="container bg-r py-5" style="background-image: url({{ 'design-blocks/shapes/1.svg' | theme_image_url }});">
+      <div class="row justify-content-start">
+        <div class="col-12 col-sm-10 col-md-8 text-center text-sm-left">
+          <h1>{{ site.name }}</h1>
+          <p class="lead">Over 170 responsive design blocks ready to be used in your web or mobile apps. All blocks are based on the Bootstrap Library. Ready to be used to create beautiful websites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% sections_dropzone %}
+{% endblock %}

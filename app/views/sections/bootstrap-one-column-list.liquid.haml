@@ -1,0 +1,92 @@
+---
+{
+  "name": "Bootstrap One Column List",
+  "class": "bootstrap-one-column-list",
+  "icon": "default",
+  
+  "settings": [
+    {
+      "label": "Link Text",
+      "id": "link_text",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap One Column List",
+      "category": "General",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+
+{% paginate contents.products by 5 %}
+{% for p in paginate.collection %}
+%hr
+
+.row
+  .col-md-7
+    %a{:href => "{{ p.fullpath }}"}
+      %img.img-fluid.rounded.mb-3.mb-md-0{:src => "{{ p.image.url | default: 'http://placehold.it/700x300' }}"}
+  .col-md-5
+    %h3 {{ p.name | default: Project Name }}
+    %p {{ p.description | default: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?' }}
+    %a.btn.btn-primary{:href => "{{ p.fullpath }}"} {{ section.settings.link_text | default: 'View' }}
+
+{% if forloop.last %}
+%hr
+{% endif %}
+{% endfor %}
+
+{% include pagination with paginate: paginate %}
+{% endpaginate %}

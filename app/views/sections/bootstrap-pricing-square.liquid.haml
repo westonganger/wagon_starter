@@ -1,0 +1,114 @@
+---
+{
+  "name": "Bootstrap Pricing Square",
+  "class": "bootstrap-pricing-square",
+  "icon": "default",
+  
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Pricing Square",
+      "category": "General",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+
+:css
+  .pricing-square .card-deck .card {
+    min-width: 220px;
+  }
+
+.container.pricing-square
+  .card-deck.mb-3.text-center
+    {% with_scope type: 'pricing_plan' %}
+    {% for block in section.blocks %}
+    .card.mb-4.shadow-sm
+      .card-header
+        {% capture plan_name %}{% cycle 'Free', 'Plus', 'Pro'  %}{% endcapture %}
+        %h4.my-0.font-weight-normal {{ block.settings.name | default: plan_name }}
+      .card-body.h-100
+        %h1.card-title.pricing-card-title
+          {{ block.settings.price | default: '$0' }}
+          %small.text-muted / mo
+        %ul.list-unstyled.mt-3.mb-4
+          {% assign default_features = '' %}
+          {% assign num = forloop.index | times: 2 %}
+
+          {% for i in (1..num) %}
+          {% assign default_features = default_features | append: ", Feature " | append: i %}
+          {% endfor %}
+
+          {% assign default_features = default_features | remove_first: ', ' | split: ', ' %}
+          
+          {% assign the_features = block.settings.features | default: default_features %}
+
+          {% for feature in the_features %}
+          %li {{ feature }}
+          {% endfor %}
+
+      .card-footer
+        %a.btn.btn-block.btn-primary.text-uppercase{:href => "{{ block.settings.link_url }}"} {{ block.settings.link_text | default: 'Purchase' }}
+    {% endfor %}
+    {% endwith_scope %}

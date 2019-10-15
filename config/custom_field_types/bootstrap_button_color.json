@@ -1,0 +1,76 @@
+{
+  "label": "Button Color",
+  "id": "button_class",
+  "default": "",
+  "type": "select",
+  "options": [
+    {
+      "label": "Primary",
+      "value": "btn-primary"
+    },
+    {
+      "label": "Secondary",
+      "value": "btn-secondary"
+    },
+    {
+      "label": "Success",
+      "value": "btn-success"
+    },
+    {
+      "label": "Danger",
+      "value": "btn-danger"
+    },
+    {
+      "label": "Warning",
+      "value": "btn-warning"
+    },
+    {
+      "label": "Info",
+      "value": "btn-info"
+    },
+    {
+      "label": "Light",
+      "value": "btn-light"
+    },
+    {
+      "label": "Dark",
+      "value": "btn-dark"
+    },
+    {
+      "label": "Link",
+      "value": "btn-link"
+    },
+    {
+      "label": "Outline Primary",
+      "value": "btn-outline-primary"
+    },
+    {
+      "label": "Outline Secondary",
+      "value": "btn-outline-secondary"
+    },
+    {
+      "label": "Outline Success",
+      "value": "btn-outline-success"
+    },
+    {
+      "label": "Outline Danger",
+      "value": "btn-outline-danger"
+    },
+    {
+      "label": "Outline Warning",
+      "value": "btn-outline-warning"
+    },
+    {
+      "label": "Outline Info",
+      "value": "btn-outline-info"
+    },
+    {
+      "label": "Outline Light",
+      "value": "btn-outline-Light"
+    },
+    {
+      "label": "Outline Dark",
+      "value": "btn-outline-dark"
+    }
+  ]
+}

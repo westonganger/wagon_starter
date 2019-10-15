@@ -1,0 +1,129 @@
+---
+{
+  "name": "Navigation",
+  "class": "navigation-section",
+  "icon": "default",
+  "settings": [
+    {
+      "label": "Show Navigation",
+      "id": "show_navigation",
+      "type": "checkbox",
+      "default": true
+    },
+    {
+      "label": "Site Title",
+      "id": "site_title",
+      "type": "text",
+      "default": "My Site"
+    },
+    {
+      "label": "Logo",
+      "id": "logo",
+      "hint": "Takes precedence over the Site Name text",
+      "type": "image_picker"
+    },
+    {
+      "label": "Nav Color Scheme",
+      "id": "color_scheme",
+      "type": "select",
+      "options": ["navbar-dark", "navbar-light"],
+      "default": "navbar-dark"
+    },
+    {
+      "label": "Background Color",
+      "id": "background_color_class",
+      "type": "text",
+      "default": "bg-dark"
+    },
+    {
+      "label": "Nav Position",
+      "id": "position",
+      "type": "select",
+      "default": "Top",
+      "options": ["Top", "Left", "Right", "Bottom"]
+    },
+    {
+      "label": "Height (for Top/Bottom only)",
+      "id": "nav_height",
+      "type": "text",
+      "hint": "Default: '55px'"
+    },
+    {
+      "label": "Min Width (for Left/Right only)",
+      "id": "nav_min_width",
+      "type": "text",
+      "hint": "Default: '300px'"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Nav Item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "label": "URL",
+          "id": "url",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {
+          "title": "Home",
+          "url": "/"
+        }
+      }
+    ]
+  }
+}
+---
+<style>
+  :root {
+    --navbar-height: {{ section.settings.nav_height | default: "55px" }};
+    --side-nav-min-width: {{ section.settings.nav_min_width | default: "300px" }};
+  }
+</style>
+
+{% if section.settings.show_navigation %}
+  {% case section.settings.position %}
+  {% when 'Left', 'Right' %}
+    {% comment %} TODO {% endcomment %}
+
+  {% when 'Top', 'Bottom' %}
+    <nav class="navbar {{section.settings.background_color_class }} {{ section.settings.color_scheme }} fixed-{{ section.settings.position }}">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          {% if section.settings.logo != blank %}
+            <img class="d-inline-block align-top" src="{{ section.settings.logo }}">
+          {% endif %}
+          {{ section.settings.site_title }}
+        </a>
+
+        <button class="navbar-toggler" type="button" onclick="$('#navbar-collapse').collapse('toggle');">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navbar-collapse" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            {% for block in section.blocks %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ block.settings.url }}">
+                  {{ block.settings.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  {% endcase %}
+{% endif %}

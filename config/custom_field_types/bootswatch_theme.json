@@ -1,0 +1,97 @@
+{
+  "label": "Bootswatch Theme",
+  "id": "bootswatch_theme",
+  "hint": "https://bootswatch.com/",
+  "type": "select",
+  "default": "",
+  "options": [
+    {
+      "label": "Default",
+      "value": ""
+    },
+    {
+      "label": "Cerulean",
+      "value": "cerulean"
+    },
+    {
+      "label": "Cosmo",
+      "value": "cosmo"
+    },
+    {
+      "label": "Cyborg",
+      "value": "cyborg"
+    },
+    {
+      "label": "Darkly",
+      "value": "darkly"
+    },
+    {
+      "label": "Flatly",
+      "value": "flatly"
+    },
+    {
+      "label": "Journal",
+      "value": "journal"
+    },
+    {
+      "label": "Litera",
+      "value": "litera"
+    },
+    {
+      "label": "Lumen",
+      "value": "lumen"
+    },
+    {
+      "label": "Lux",
+      "value": "lux"
+    },
+    {
+      "label": "Materia",
+      "value": "materia"
+    },
+    {
+      "label": "Minty",
+      "value": "minty"
+    },
+    {
+      "label": "Pulse",
+      "value": "pulse"
+    },
+    {
+      "label": "Sandstone",
+      "value": "sandstone"
+    },
+    {
+      "label": "Simplex",
+      "value": "simplex"
+    },
+    {
+      "label": "Sketchy",
+      "value": "sketchy"
+    },
+    {
+      "label": "Slate",
+      "value": "slate"
+    },
+    {
+      "label": "Solar",
+      "value": "solar"
+    },
+    {
+      "label": "Spacelab",
+      "value": "spacelab"
+    },
+    {
+      "label": "Superhero",
+      "value": "superhero"
+    },
+    {
+      "label": "United",
+      "value": "united"
+    },
+    {
+      "label": "Yeti",
+      "value": "yeti"
+    }
+  ]
+}

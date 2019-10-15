@@ -1,0 +1,33 @@
+---
+title: Bootstrap Kitchen Sink
+listed: true
+published: true
+handle: bootstrap-kitchen-sink
+---
+{% extends 'layouts/default' %}
+
+{% block main %}
+
+{% section 'bootstrap-carousel' %}
+{% section 'bootstrap-headline' %}
+
+.container
+  {% section 'bootstrap-album' %}
+  {% section 'bootstrap-features-round' %}
+  {% section 'bootstrap-cards' %}
+  {% section 'bootstrap-featurettes' %}
+  {% section 'bootstrap-one-column-list' %}
+  {% section 'bootstrap-thumbnail-gallery' %}
+  {% section 'bootstrap-portfolio-item' %}
+
+.blue-gradient(style="background: #007bff; background: linear-gradient(to right, #0062E6, #33AEFF);")
+  {% section 'bootstrap-pricing-round' %}
+  {% section 'bootstrap-pricing-square' %}
+  {% section 'bootstrap-login-round' %}
+  {% section 'bootstrap-login-square' %}
+  {% section 'bootstrap-account-registration' %}
+
+.container
+  {% section 'custom_content' %}
+
+{% endblock %}

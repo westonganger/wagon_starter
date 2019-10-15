@@ -1,0 +1,109 @@
+---
+{
+  "name": "Bootstrap Portfolio Item",
+  "class": "bootstrap-portfolio-item",
+  "icon": "default",
+  
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Portfolio Item",
+      "category": "General",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+
+{% assign product = contents.products.first %}
+
+.row
+  .col-md-8
+    %img.img-fluid{:alt => "", :src => "{{ product.image.url | default: 'http://placehold.it/750x500' }}"}
+  .col-md-4
+    %h3.my-3 {{ product.name | default: 'Product Title' }}
+    %p {{ product.description | default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.' }}
+
+    %h3.my-3 Product Features
+    %ul
+      {% assign default_features = 'Lorem Ipsum, Dolor Sit Amet, Consectetur, Adipiscing Elit' | split: ', ' %}
+      {% assign the_features = product.features | default: default_features %}
+
+      {% for feature in the_features %}
+      %li {{ feature }}
+      {% endfor %}
+
+%h3.my-4 Related Products
+.row
+  .col-md-3.col-sm-6.mb-4
+    %a{:href => "#"}
+      %img.img-fluid{:alt => "", :src => "http://placehold.it/500x300"}/
+  .col-md-3.col-sm-6.mb-4
+    %a{:href => "#"}
+      %img.img-fluid{:alt => "", :src => "http://placehold.it/500x300"}/
+  .col-md-3.col-sm-6.mb-4
+    %a{:href => "#"}
+      %img.img-fluid{:alt => "", :src => "http://placehold.it/500x300"}/
+  .col-md-3.col-sm-6.mb-4
+    %a{:href => "#"}
+      %img.img-fluid{:alt => "", :src => "http://placehold.it/500x300"}/

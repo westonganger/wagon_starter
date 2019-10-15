@@ -1,0 +1,137 @@
+---
+{
+  "name": "Bootstrap Featurettes",
+  "icon": "default",
+  "keep_icon": true,
+  "keep_label": true,
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Headline",
+          "id": "headline",
+          "type": "text"
+        },
+        {
+          "label": "Sub Headline",
+          "id": "sub_headline",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        },
+        {
+          "label": "Link Text",
+          "id": "link_text",
+          "type": "text"
+        },
+        {
+          "label": "Link URL",
+          "id": "link_url",
+          "type": "url"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Featurettes",
+      "category": "Bootstrap",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+<style>
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
+
+  @media (min-width: 40em) {
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+</style>
+
+{% with_scope type: 'item' %}
+{% for block in section.blocks %}
+  <hr class="featurette-divider" />
+
+  <div class="row featurette">
+    {% capture alignment_class %}{% cycle '', 'order-md-2' %}{% endcapture %}
+    <div class="col-md-7 {{ alignment_class }}">
+      <h2 class="featurette-heading">
+        {{ block.settings.headline | default: 'Featurette Headline'}}
+        <span class="text-muted">{{ block.settings.subheadline | default: It’ll blow your mind.' }}</span>
+      </h2>
+      <p class="lead">
+        {{ block.settings.description | default: 'Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.' }}
+      </p>
+    </div>
+
+    {% capture alignment_class %}{% cycle '', 'order-md-1' %}{% endcapture %}
+    <div class="col-md-5 {{ alignment_class }}">
+      <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" focusable="false" height="500" preserveaspectratio="xMidYMid slice" role="img" width="500">
+        <title>Placeholder</title>
+        <rect fill="#eee" height="100%" width="100%"></rect>
+        <text dy=".3em" fill="#aaa" x="50%" y="50%">500x500</text>
+      </svg>
+    </div>
+  </div>
+
+  {% if forloop.last %}
+    <hr class="featurette-divider" />
+  {% endif %}
+{% endfor %}
+{% endwith_scope %}

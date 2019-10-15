@@ -1,0 +1,63 @@
+---
+title: Actions
+listed: false
+published: true
+---
+
+{% authorize "accounts", "sign_in" %}
+
+{% comment %}
+  - When using {% extend layouts/default %} requires you to wrap your action within a block ex. {% block main %} ... {% endblock %}
+
+  {% authorize "<user account content type slug>", "<page handle to redirect to>" %} 
+  {% authorize "accounts", "sign_in" %}
+
+  - https://doc.locomotivecms.com/v4.0/docs/introduction
+
+  - redirectTo
+  - logging
+
+  - sendEmail
+
+  - allEntries
+  - findEntry
+  - createEntry
+  - updateEntry
+
+  - getSessionProp
+  - setSessionProp
+
+  - getProp ### variables from current context
+  - setProp
+
+  - callAPI
+
+{% endcomment %}
+
+{% case http_method %}
+{% when 'GET' %}
+  {% case params.which %}
+  {% when 'my_action_name' %}
+  {% when 'another_action' %}
+  {% endcase %}
+{% when 'POST' %}
+  {% case params.which %}
+  {% when 'my_action_name' %}
+  {% when 'another_action' %}
+  {% endcase %}
+{% when 'PUT', 'PATCH' %}
+  {% case params.which %}
+  {% when 'my_action_name' %}
+  {% when 'another_action' %}
+  {% endcase %}
+{% when 'DELETE' %}
+  {% case params.which %}
+  {% when 'my_action_name' %}
+  {% when 'another_action' %}
+  {% endcase %}
+{% when 'HEAD' %}
+  {% case params.which %}
+  {% when 'my_action_name' %}
+  {% when 'another_action' %}
+  {% endcase %}
+{% endcase %}

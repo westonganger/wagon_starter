@@ -1,0 +1,26 @@
+---
+title: Other
+handle: other
+listed: true
+published: true
+position: 999
+---
+{% extends 'layouts/default' %}
+
+{% block main %}
+<div class="container text-center">
+  <h1 class="text-underline mt-5 mb-4">Other Categories</h1>
+
+  {% with_scope depth: 2, listed: true %}
+    {% assign sorted_pages = site.pages | sort: 'title' %}
+    {% for p in sorted_pages %}
+      {% if p.fullpath contains 'bootstrap/' %}
+        <div class="mt-3">
+          <a class="btn btn-dark" href="{% path_to p %}">{{ p.title }}</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endwith_scope %}
+  <div class="mt-5"></div>
+</div>
+{% endblock %}

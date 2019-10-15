@@ -1,0 +1,30 @@
+---
+title: Lock screen
+listed: false
+handle: lock_screen
+---
+<html>
+  <title>{{ site.name }} - My custom lock screen</title>
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+    body { background: #f8f8f8; height: 100%; font-family: "Open Sans", sans-serif; font-size: 12px; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d; transform-style: preserve-3d; }
+    h1 { text-align: center; }
+    form { position: relative; top: 50%; width: 300px; margin: 0px auto; transform: translateY(-50%); -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); }
+    form p { text-align: center; color: #d9684c; }
+    form input[type=password] { border: 2px solid #eee; font-size: 14px; padding: 5px 8px; background: #fff; }
+    form input[type=submit] { border: 0 none; padding: 6px 20px; background: #171717; color: #fff; font-size: 14px; text-transform: none; transition: all 100ms ease-in-out; cursor: pointer; }
+    form input[type=submit]:hover { opacity: .7; }
+  }
+  </style>
+  <body>
+    <h1>Work in progress</h1>
+    <form action="{{ mounted_on }}" method="POST">
+      {% if params.private_access_password.size > 0 %}
+        <p>Wrong password</p>
+      {% endif %}
+      <input type="password" name="private_access_password" placeholder="Password" />
+      &nbsp;
+      <input type="submit" value="Unlock" />
+    </form>
+  </body>
+</html>

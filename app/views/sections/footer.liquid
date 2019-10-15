@@ -1,0 +1,71 @@
+---
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "icon": "default",
+  "settings": [
+    {
+      "label": "Show Footer?",
+      "id": "show_footer",
+      "type": "checkbox",
+      "default": true
+    },
+    {
+      "label": "Custom Content",
+      "id": "custom_content",
+      "type": "text",
+      "html": true
+    },
+    {
+      "label": "Show Default Content?",
+      "id": "show_default_content",
+      "type": "checkbox",
+      "default": true
+    },
+    {
+      "label": "Background Color",
+      "id": "background_color_class",
+      "type": "text",
+      "default": "bg-dark"
+    },
+    {
+      "label": "Full Width?",
+      "id": "full_width",
+      "type": "checkbox",
+      "default": false
+    },
+    {
+      "label": "Show Map?",
+      "id": "show_map",
+      "type": "checkbox",
+      "default": false
+    },
+    {
+      "label": "Map Embed Script (HTML)",
+      "id": "map_embed_script",
+      "type": "text"
+    }
+  ],
+  "blocks": []
+}
+---
+
+{% if section.settings.show_footer %}
+  <footer class="py-4 sticky-footer {{ section.settings.background_color_class }}">
+    <div class="container{% if section.settings.full_width %}-fluid{% endif %}">
+      {% if section.settings.show_default_content %}
+        <p class="m-0 text-center text-white">
+          © {{ "today" | date: "%Y" }} {{ site.metafields.company.name }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.custom_content != blank %}
+        {{ section.settings.custom_content }}
+      {% endif %}
+
+      {% if section.settings.show_map and section.settings.map_embed_script != blank %}
+        {{ section.settings.map_embed_script }}
+      {% endif %}
+    </div>
+  </footer>
+{% endif %}

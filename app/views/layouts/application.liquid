@@ -1,0 +1,85 @@
+---
+title: Application Layout
+slug: application
+is_layout: false # false = dont show in backend
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+
+    <link href="{{ 'favicon.png' | theme_image_url }}" rel="shortcut icon" />
+
+    {% seo %}
+
+    {% comment %}
+    {% include 'asset' with type: 'bootstrap', version: '4.3.1' bootswatch_theme: nil %}
+    {% endcomment %}
+
+    {% block css-before %}{% endblock %}
+
+    {% assign theme = page.global_sections.theme.settings.bootswatch_theme %}
+    {% if theme != blank %}
+      {% include 'asset', type: 'bootstrap', version: '4.3.1', bootswatch_theme: theme, skip_js: true %}
+    {% else %}
+      {{ 'main/bootstrap_4_custom' | stylesheet_tag }}
+    {% endif %}
+
+    {{ 'shared/app' | stylesheet_tag }}
+    {{ 'main/app' | stylesheet_tag }}
+
+    {% block css %}{% endblock %}
+
+    {% comment %} Default Fonts Go Here {% endcomment %}
+    {% comment %}<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">{% endcomment %}
+
+    {% block fonts %}{% endblock %}
+
+    {% include 'icons' with type: 'font-awesome-5' %}
+
+    {% block icons %}{% endblock %}
+
+    {% block js-before %}{% endblock %}
+
+    {{ 'shared/app' | javascript_tag }}
+    {% include 'asset' with type: 'bootstrap', version: '4.3.1', skip_css: true %}
+    {{ 'main/app' | javascript_tag }}
+
+    {% block js %}{% endblock %}
+
+    {% global_section 'theme', placement: 'top' %}
+
+    {% block head-bottom %}{% endblock %}
+  </head>
+
+  <body id="page-top" class="has-sticky-footer {{ page.handle }}">
+    {% block body-top %}{% endblock %}
+
+    {% block loader %}
+      {% include 'loader' %}
+    {% endblock %}
+
+    {% block navigation %}
+      {% global_section 'navigation', placement: 'top' %}
+    {% endblock %}
+
+    <div id="page-content">
+      {% block flash-notice %}
+        {% include 'flash-notice' %}
+      {% endblock %}
+
+      {% block main %}{% endblock %}
+    </div>
+    
+    {% block footer %}
+      {% global_section 'footer', placement: 'bottom' %}
+    {% endblock %}
+
+    {% block bottom-nav %}{% endblock %}
+
+    {% block body-bottom %}{% endblock %}
+  </body>
+</html>

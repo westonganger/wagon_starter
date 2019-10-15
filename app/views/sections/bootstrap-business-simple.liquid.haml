@@ -1,0 +1,77 @@
+---
+{
+  "name": "Bootstrap Business Simple",
+  "icon": "default",
+  "keep_icon": true,
+  "keep_label": true,
+  "settings": [
+    {
+      "label": "Description Headline",
+      "id": "description_headline",
+      "type": "text"
+    },
+    {
+      "label": "Description Subtext",
+      "id": "description_subtext",
+      "type": "text"
+    },
+    {
+      "label": "Call",
+      "id": "description_subtext",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Business Simple",
+      "category": "Bootstrap",
+      "settings": {},
+      "blocks": [
+      ]
+    }
+  ]
+}
+---
+%header.bg-primary.py-5.mb-5
+  .container
+    .row.align-items-center
+      .col-lg-12
+        %h1.display-4.text-white.mt-5.mb-2 {{ section.settings.headline | default: 'Business Name or Tagline' }}
+        %p.lead.mb-5.text-white-50 {{ section.settings.headline_subtext | default: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non possimus ab labore provident mollitia. Id assumenda voluptate earum corporis facere quibusdam quisquam iste ipsa cumque unde nisi, totam quas ipsam.' }}
+
+.container
+  .row
+    .col-md-8.mb-5
+      %h2 {{ section.settings.title | default: 'What We Do' }}
+      %hr
+      %p {{ section.settings.text | default: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!' }}
+
+      %a.btn.btn-primary.btn-lg{:href => "{{ section.settings.link_url }}"} {{ section.settings.link_text | default: "Contact Us" }}
+
+    .col-md-4.mb-5
+      %h2 Contact Us
+      %hr/
+
+      %address
+        %strong Phone:
+        {{ site.metafields.company.phone }}
+        %br
+        %strong Email:
+        %a{:href => "mailto:{{ site.metafields.company.email }}"} {{ site.metafields.company.email }}
+
+      %address
+        %div {{ site.metafields.company.address }} 
+        %div {{ site.metafields.company.city }} 
+        %div {{ site.metafields.company.postal_code }} 
+
+      %address
+        %strong Hours:
+        %br
+        {{ site.metafields.company.hours }}

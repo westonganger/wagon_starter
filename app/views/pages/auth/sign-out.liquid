@@ -1,0 +1,14 @@
+---
+title: Sign out
+handle: sign_out
+---
+
+{% extends layouts/unauthenticated %}
+
+{% block main %}
+<form action="{% path_to 'sign_in' %}" method="POST">
+  <input type="hidden" name="auth_action" value="sign_out" />
+  <input type="hidden" name="auth_content_type" value="accounts" />
+  <input type="submit" value="Sign out" />
+</form>
+{% endblock %}

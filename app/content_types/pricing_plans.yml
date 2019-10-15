@@ -1,0 +1,50 @@
+name: Pricing Plans
+slug: pricing_plans
+description: 
+label_field_name: name
+order_by: manually
+group_by:
+
+fields:
+- name:
+    label: Name
+    type: string
+    required: true
+    hint: 
+    localized: false
+- cost:
+    label: Cost
+    type: string
+    required: false
+    hint: 
+    localized: false
+- image:
+    label: Image
+    type: file
+    required: false
+    hint: 
+    localized: false
+- description:
+    label: Description
+    type: text
+    required: false
+    hint: 
+    localized: false
+- features:
+    label: Features
+    type: text
+    text_formatting: raw
+    hint: "Separate features with a semicolan ';'"
+    localized: false
+- button_text:
+    label: Button Text
+    type: string
+    required: false
+    hint: 
+    localized: false
+- button_url:
+    label: Button URL
+    type: text
+    required: false
+    hint: 
+    localized: false

@@ -1,0 +1,150 @@
+---
+{
+  "name": "Bootstrap Full Page Header",
+  "class": "bootstrap-full-page-header",
+  "icon": "default",
+  
+  "settings": [
+    {
+      "label": "Title",
+      "id": "title",
+      "type": "text"
+    },
+    {
+      "label": "Description",
+      "id": "description",
+      "type": "text"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text"
+        },
+        {
+          "label": "Description",
+          "id": "description",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      },
+      {
+        "type": "item",
+        "settings": {}
+      }
+    ]
+  },
+  "dropzone_presets": [
+    {
+      "name": "Bootstrap Full Page Header",
+      "category": "General",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        },
+        {
+          "type": "item",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+
+:css
+  .video-header-section header {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .video-header-section header video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .video-header-section header .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .video-header-section header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: {{ section.settings.overlay_color | default: 'black' }};
+    opacity: {{ section.settings.overlay_opacity | default: 0.4 }};
+    z-index: 1;
+  }
+
+  @media (pointer: coarse) and (hover: none) {
+    /* Image Fallback */
+    .video-header-section header {
+      background: url("{{ section.settings.fallback_image_url | default: 'https://i.ytimg.com/vi/CIfN6vIck0Y/maxresdefault.jpg'}}") black no-repeat center center scroll;
+    }
+    .video-header-section header video {
+      display: none;
+    }
+  }
+
+.video-header-section 
+  %header
+    .overlay
+
+    %video{:autoplay => "autoplay", :loop => "loop", :muted => "muted", :playsinline => "playsinline"}
+      %source{:src => "{{ section.settings.video_url | default: 'https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4' }}", :type => "video/mp4"}
+
+    .container.h-100
+      .d-flex.h-100.text-center.align-items-center
+        .w-100.text-white
+          %h1.display-3 Video Header
+          %p.lead.mb-0 With HTML5 Video and Bootstrap 4
+
+  %section.my-5
+    .container
+      .row
+        .col-md-8.mx-auto
+          %p The HTML5 video element uses an mp4 video as a source. Change the source video to add in your own background! The header text is vertically centered using flex utilities that are build into Bootstrap 4.
+          %p
+            The overlay color can be changed by changing the
+            %code background-color
+            of the
+            %code .overlay
+            class in the CSS.
+          %p Set the mobile fallback image in the CSS by changing the background image of the header element within the media query at the bottom of the CSS snippet.

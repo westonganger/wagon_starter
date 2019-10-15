@@ -1,0 +1,45 @@
+{
+  "name": "wagon_site",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Weston Ganger <weston@westonganger.com>",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "build:prod": "NODE_ENV=production yarn run build",
+    "watch": "yarn run build --watch",
+    "watch:prod": "yarn run build:prod --watch",
+    "test": "echo \"No test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@rails/ujs": "^6.0",
+    "babel-loader": "^8.0.6",
+    "bootstrap": "^4.3.0",
+    "popper.js": "^1.14.7",
+    "bootswatch": "^4.3.0",
+    "jquery": "^3.4.1",
+    "turbolinks": "^5.2.0"
+  },
+  "unusedDependencies": {
+    "bootstrap-datepicker": "*",
+    "jquery-enable-disable": "*",
+    "rearmed-js": "*",
+    "autosize": "*",
+    "chosen-bootstrap-theme": "*",
+    "chosen-js": "*",
+    "x-data-spreadsheet": "git+https://github.com/myliang/x-spreadsheet.git",
+    "jquery.are-you-sure": "*",
+    "input-autogrow": "*",
+    "input-case-enforcer": "*",
+    "select-sync": "*"
+  },
+  "devDependencies": {
+    "laravel-mix": "^4.0.13",
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.20.1",
+    "sass-loader": "7.*",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-bundle-analyzer": "^3.3.2"
+  },
+  "unusedDevDependencies": {}
+}

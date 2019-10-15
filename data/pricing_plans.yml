@@ -1,0 +1,21 @@
+- "Basic":
+    cost: $19 /month
+    description: "For small companies"
+    image: "/images/samples/res_img_1.jpg"
+    features: Item 1;Item 2;Item 3
+    button_text: Select Plan
+    button_url: 
+- "Premium":
+    cost: $19 /month
+    description: "For small companies"
+    image: "/images/samples/res_img_1.jpg"
+    features: Item 1;Item 2;Item 3
+    button_text: Select Plan
+    button_url: 
+- "Business":
+    cost: $19 /month
+    description: "For small companies"
+    image: "/images/samples/res_img_1.jpg"
+    features: Item 1;Item 2;Item 3
+    button_text: Select Plan
+    button_url: 

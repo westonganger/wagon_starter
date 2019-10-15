@@ -1,0 +1,258 @@
+---
+{
+  "name": "Components",
+  "class": "component-section",
+  "icon": "default",
+  "settings": [
+    {
+      "label": "Number of Items per Row",
+      "id": "number_of_items_per_row",
+      "type": "text",
+      "default": "3"
+    },
+    {
+      "label": "Background Color Class",
+      "id": "background_color_class",
+      "hint": "TODO: custom field type",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "label": "Background Image",
+      "id": "background_image",
+      "hint": "Takes precedence over Background Color",
+      "type": "image_picker"
+    },
+    {
+      "label": "Full Height?",
+      "id": "full_height",
+      "type": "checkbox",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Alert",
+      "type": "alert",
+      "settings": [
+        {
+          "label": "Content",
+          "id": "content",
+          "type": "text",
+          "html": true,
+          "default": "Card Content"
+        },
+        {
+          "label": "Is Dismissible?",
+          "id": "is_dismissible",
+          "type": "checkbox",
+          "default": true
+        },
+        {
+          "label": "Color",
+          "id": "color_class",
+          "type": "text",
+          "html": true,
+          "default": "Card Content"
+        },
+        {
+          "label": "Text Color",
+          "id": "text_color_class",
+          "type": "text",
+          "hint": "TODO Custom Field Type",
+          "default": ""
+        },
+        {
+          "label": "Text Alignment",
+          "id": "text_alignment_class",
+          "type": "text",
+          "hint": "TODO Custom Field Type",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "type": "card",
+      "settings": [
+        {
+          "label": "Title",
+          "id": "title",
+          "type": "text",
+          "default": "Card Title"
+        },
+        {
+          "label": "Content",
+          "id": "content",
+          "type": "text",
+          "html": true,
+          "default": "Card Content"
+        },
+        {
+          "label": "Footer Content",
+          "id": "footer_content",
+          "type": "text",
+          "html": true,
+          "default": "Footer Content"
+        },
+        {
+          "label": "Link URL",
+          "id": "link_url",
+          "type": "url",
+          "default": "#"
+        },
+        {
+          "label": "Link Text",
+          "id": "link_text",
+          "type": "text",
+          "default": "Link Text",
+          "only_if": "link_url"
+        },
+        {
+          "label": "Link Color",
+          "id": "link_color_class",
+          "type": "text",
+          "hint": "TODO Custom Field Type",
+          "default": "btn-secondary",
+          "only_if": "link_url"
+        },
+        {
+          "label": "Image",
+          "id": "image_url",
+          "type": "image_picker",
+          "default": "/images/samples/400x200.png"
+        },
+        {
+          "label": "Image Alt Text",
+          "id": "image_alt",
+          "type": "text",
+          "default": "",
+          "only_if": "image_url"
+        },
+        {
+          "label": "Background Color",
+          "id": "background_color_class",
+          "type": "text",
+          "hint": "TODO Custom Field Type",
+          "default": ""
+        },
+        {
+          "label": "Text Color",
+          "id": "text_color_class",
+          "type": "text",
+          "hint": "TODO Custom Field Type",
+          "default": ""
+        },
+        {
+          "label": "Text Alignment",
+          "id": "text_alignment_class",
+          "type": "text",
+          "hint": "TODO Custom Field Type",
+          "default": ""
+        }
+      ]
+    }
+  ],
+  "dropzone_presets": [
+    {
+      "name": "Alert",
+      "category": "Components",
+      "settings": {
+        "number_of_columns_per_row": "1"
+      },
+      "blocks": [
+        {
+          "type": "alert",
+          "settings": {}
+        },
+      ]
+    },
+    {
+      "name": "Cards",
+      "category": "Components",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {}
+        },
+        {
+          "type": "card",
+          "settings": {}
+        },
+        {
+          "type": "card",
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
+---
+<section class="fdb-block {{ section.settings.background_color_class }} {% if section.settings.full_height %}full-height flex-center-y{% endif %}" {% if section.settings.background_image != blank %}style="background-image: url({{section.settings.background_image}});"{% endif %}>
+
+  {% assign block_groups = section.blocks | in_groups_of: section.settings.number_of_items_per_row %} 
+
+  {% for block_group in block_groups %}
+    <div class="row {% unless forloop.last %}mb-5{% endunless %}">
+      {% for block in block_group %}
+        <div class="col {{ block.settings.text_color_class }} {{ block.settings.text_alignment_class }}">
+          {% case block.type %}
+          {% when 'alert' %}
+            {% include 'bootstrap-alert', content: block.settings.content,
+                                          is_dismissible: block.settings.is_dismissible,
+                                          color_class: block.settings.color_class,
+                                          %}
+          {% when 'card' %}
+            {% include 'bootstrap-card', title: block.settings.title, 
+                                         content: block.settings.content, 
+                                         show_link: block.settings.show_link, 
+                                         link_text: block.settings.link_text, 
+                                         link_color_class: block.settings.link_color_class
+                                         link_url: block.settings.link_url,
+                                         background_color_class: block.settings.background_color_class,
+                                         %}
+          {% when 'figure' %}
+            {% include 'bootstrap-figure', caption: block.settings.caption,
+                                           image_url: block.settings.image_url,
+                                           image_alt: block.settings.image_alt
+                                           %}
+          {% when 'jumbotron', 'video_header' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'custom_content' %}
+            {{ block.settings.content }
+          {% when 'accordion' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'tabs' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'list_group' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'media_object' %}
+            {% comment %} TODO {% endcomment %}
+            {% include 'bootstrap-media-object', title: block.settings.title,
+                                                 content: block.settings.content,
+                                                 image_url: block.settings.image_url,
+                                                 image_alt: block.settings.image_alt,
+                                                 image_alignment_class: block.settings.image_alignment_class
+                                                 %}
+          {% when 'toast' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'code_block' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'embed' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'carousel' %}
+            {% comment %} TODO {% endcomment %}
+          {% when '' %}
+          {% when 'pricing_plan' %}
+            {% comment %} TODO {% endcomment %}
+          {% when 'feature' %}
+            {% comment %} TODO {% endcomment %}
+          {% when '' %}
+          {% else %}
+          {% endcase %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</section>

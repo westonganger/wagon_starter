@@ -1,0 +1,80 @@
+{
+  "label": "Background Color",
+  "id": "bg_class",
+  "default": "",
+  "type": "select",
+  "options": [
+    {
+      "label": "Primary",
+      "value": "bg-primary"
+    },
+    {
+      "label": "Secondary",
+      "value": "bg-secondary"
+    },
+    {
+      "label": "Success",
+      "value": "bg-success"
+    },
+    {
+      "label": "Danger",
+      "value": "bg-danger"
+    },
+    {
+      "label": "Warning",
+      "value": "bg-warning"
+    },
+    {
+      "label": "Info",
+      "value": "bg-info"
+    },
+    {
+      "label": "Light",
+      "value": "bg-light"
+    },
+    {
+      "label": "Dark",
+      "value": "bg-dark"
+    },
+    {
+      "label": "White",
+      "value": "bg-white"
+    },
+    {
+      "label": "Transparent",
+      "value": "bg-transparent"
+    },
+    {
+      "label": "Primary Gradient",
+      "value": "bg-gradient-primary"
+    },
+    {
+      "label": "Secondary Gradient",
+      "value": "bg-gradient-secondary"
+    },
+    {
+      "label": "Success Gradient",
+      "value": "bg-gradient-success"
+    },
+    {
+      "label": "Danger Gradient",
+      "value": "bg-gradient-danger"
+    },
+    {
+      "label": "Warning Gradient",
+      "value": "bg-gradient-warning"
+    },
+    {
+      "label": "Info Gradient",
+      "value": "bg-gradient-info"
+    },
+    {
+      "label": "Light Gradient",
+      "value": "bg-gradient-light"
+    },
+    {
+      "label": "Dark Gradient",
+      "value": "bg-gradient-dark"
+    }
+  ]
+}
